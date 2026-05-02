@@ -172,6 +172,25 @@ Run unit and Cucumber behavior tests:
 
 Test configuration uses in-memory H2 with PostgreSQL compatibility mode from `src/test/resources/application.yml`, so tests do not require Docker.
 
+## CI
+
+GitHub Actions workflow: `.github/workflows/ci.yml`.
+
+The workflow runs automatically on:
+
+- Pushes to `develop`
+- Pull requests targeting `develop`
+
+It can also be started manually from the Actions tab with `workflow_dispatch`. When manually triggered, GitHub lets you select the branch to run from, so you can build the current feature branch image before merging.
+
+The CI pipeline:
+
+1. Sets up Java 25.
+2. Runs `./gradlew test blackboxTest --no-daemon`.
+3. Builds the Docker image from `Dockerfile`.
+
+The image build validates the Dockerfile but does not push to a registry yet.
+
 ## Notes
 
 - Yahoo Finance can rate-limit automated requests. Reusing stored database data helps reduce repeated calls.
