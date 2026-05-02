@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: java-with-ai
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/market_training}
+    username: ${SPRING_DATASOURCE_USERNAME:market_user}
+    password: ${SPRING_DATASOURCE_PASSWORD:market_password}
+  sql:
+    init:
+      mode: always
