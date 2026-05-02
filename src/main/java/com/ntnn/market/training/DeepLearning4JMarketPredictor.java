@@ -18,7 +18,7 @@ import org.nd4j.linalg.learning.config.Adam;
 import org.nd4j.linalg.lossfunctions.LossFunctions;
 
 public class DeepLearning4JMarketPredictor {
-    private static final int LOOKBACK_DAYS = 360;
+    private static final int LOOKBACK_DAYS = 20;
     private static final int FEATURE_COUNT = 4;
     private static final int ACTION_COUNT = MarketAction.values().length;
 
